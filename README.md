@@ -5,6 +5,28 @@ Analyzing Personal Key Indicators of Heart Disease Using Data from Kaggle
 
 According to the CDC website Heart disease is the leading cause of death in america in this project I will be examining personal key indicators of Heart disease with the goal of identifying the top drivers of heart disease and creating a predictive algorithm to determine an individual's risk level based on those drivers. This information can be used to help manage ones personal risk by identifying lifestyle choices and other health related indicators of heart disease. 
 
+## Data Dictionary
+| Feature | Definition |
+|:--------|:-----------|
+| has_heart_disease (Target) | Respondent reported having had coronary heart disease or myocardial infarction |
+| bmi | Body Mass Index |
+| is_smoker | Respondent has smoked at least 100 cigarettes in their lifetime |
+| heavy_drinker | adult men having more than 14 drinks per week and adult women having more than 7 drinks per week) |
+| stroke | Subject has had a stroke |
+| poor_physical_health_days | Number of days in the last 30 respondent’s physical health was not good | 
+| poor_mental_health_days | Number of days in the last 30 respondent’s mental health was not good |
+| has_difficulty_walking | Respondent has difficulty walking or climbing stairs |
+| sex | Respontent’s sex identified as male or female |
+| age_category | Respondent's age categorized by 5 year intervals |
+| race | Respondent's race/ethnicity |
+| diabetic | Respondent reported having had diabetes |
+| physical_activity | Respondent reported doing physical activity in the past 30 days outside of their regular job | 
+| general_health | Category of respondent’s general health |
+| sleep_time | The average number of hours the respondent sleeps each night |
+| asthma | Respondent reported having had asthma |
+| kidney_disease | Respondent reported having kidney disease |
+| skin_cancer | Respondent reported having skin cancer | 
+
 ## Project Planning
 
 ### Acquire
