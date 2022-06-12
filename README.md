@@ -10,19 +10,19 @@ According to the CDC website Heart disease is the leading cause of death in amer
 |:--------|:-----------|
 | has_heart_disease (Target) | Respondent reported having had coronary heart disease or myocardial infarction |
 | bmi | Body Mass Index |
-| is_smoker | Respondent has smoked at least 100 cigarettes in their lifetime |
-| heavy_drinker | adult men having more than 14 drinks per week and adult women having more than 7 drinks per week) |
-| stroke | Subject has had a stroke |
-| poor_physical_health_days | Number of days in the last 30 respondent’s physical health was not good | 
-| poor_mental_health_days | Number of days in the last 30 respondent’s mental health was not good |
+| is_smoker | Respondent reported having smoked at least 100 cigarettes in their lifetime |
+| heavy_drinker | Respondent reported being an adult man having more than 14 drinks per week or an adult women having more than 7 drinks per week) |
+| stroke | Respondent reported having had a stroke |
+| poor_physical_health_days | Number of days in the last 30 where respondent reported physical health as not good | 
+| poor_mental_health_days | Number of days in the last 30 where respondent reported mental health as not good |
 | has_difficulty_walking | Respondent has difficulty walking or climbing stairs |
 | sex | Respontent’s sex identified as male or female |
-| age_category | Respondent's age categorized by 5 year intervals |
-| race | Respondent's race/ethnicity |
+| age_category | Respondent's reported age categorized by 5 year intervals |
+| race | race/ethnicity reported by respondent |
 | diabetic | Respondent reported having had diabetes |
 | physical_activity | Respondent reported doing physical activity in the past 30 days outside of their regular job | 
-| general_health | Category of respondent’s general health |
-| sleep_time | The average number of hours the respondent sleeps each night |
+| general_health | Category of general health reported by respondent|
+| sleep_time | The average number of hours the respondent reports sleeping each night |
 | asthma | Respondent reported having had asthma |
 | kidney_disease | Respondent reported having kidney disease |
 | skin_cancer | Respondent reported having skin cancer | 
