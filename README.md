@@ -9,7 +9,7 @@ According to the CDC website Heart disease is the leading cause of death in amer
 | Feature | Definition |
 |:--------|:-----------|
 | has_heart_disease (Target) | Respondent reported having had coronary heart disease or myocardial infarction |
-| bmi | Body Mass Index |
+| bmi | Body Mass Index reported by respondent|
 | is_smoker | Respondent reported having smoked at least 100 cigarettes in their lifetime |
 | heavy_drinker | Respondent reported being an adult man having more than 14 drinks per week or an adult women having more than 7 drinks per week) |
 | stroke | Respondent reported having had a stroke |
