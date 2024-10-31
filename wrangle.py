@@ -54,7 +54,11 @@ def get_my_dummies(df):
                 'kidney_disease',
                 'skin_cancer',
                 'age_category',
-                'general_health']
+                'general_health',
+                'stroke',
+                'sex',
+                'race',
+                'asthma']
 
     dummies = pd.get_dummies(df[cat_cols])
 
