@@ -5,7 +5,6 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import RobustScaler
 
-
 def get_my_data():
 
     # readin data
@@ -30,6 +29,9 @@ def get_my_data():
                             'Asthma':'asthma', 
                             'KidneyDisease':'kidney_disease', 
                             'SkinCancer':'skin_cancer'})
+
+    # add BMI category line
+    df['bmi_cat'] = df.bmi.apply(get_bmi_cat)
 
     # get dummie variables for actegorical columns
     df = get_my_dummies(df)
@@ -58,12 +60,31 @@ def get_my_dummies(df):
                 'stroke',
                 'sex',
                 'race',
-                'asthma']
+                'asthma',
+                'bmi_cat']
 
     dummies = pd.get_dummies(df[cat_cols])
 
     return df.join(dummies)
 
+def get_bmi_cat(value):
+
+    if value < 18.5:
+
+        return "underwight"
+    
+    elif (value >= 18.5) and (value < 25):
+
+        return "healthy weight"
+    
+    elif (value >= 25) and (value < 30):
+
+        return "overwight"
+    
+    elif value >= 30:
+
+        return "obesity"
+ 
 
 def split_my_data(df):
 
