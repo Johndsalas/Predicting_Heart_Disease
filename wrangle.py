@@ -94,13 +94,13 @@ def split_my_data(df):
     train_validate, test = train_test_split(df, 
                                             test_size=.2, 
                                             random_state=123, 
-                                            stratify=df.heart_disease)
+                                            stratify=df.HadHeartAttack)
 
     # split train_validate into train and validate
     train, validate =  train_test_split(train_validate, 
                                         test_size=.2, 
                                         random_state=123, 
-                                        stratify=train_validate.heart_disease)
+                                        stratify=train_validate.HadHeartAttack)
 
     # reset index for train validate and test
     train.reset_index(drop=True, inplace=True)
