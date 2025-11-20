@@ -9,19 +9,26 @@ target_value = "Yes"
 
 ### seperate categorical and continuous columns
 def main(df, target_column, target_value):
+    '''Takes in dataframe and target column and target value in that column as strings 
+    Prints preliminary charts comparing the other columns in that data frame to the value in the target column'''
+    
+    num_li, cat_li, o_li = sep_data_types(df,target_column)
 
-    num_li, cat_li, o_li = sep_data_types(df)
+    print(f'continuous columns: {num_li}')
+    print()
+    print(f'categorical columns: {cat_li}')
+    print()
+    print(f'other columns: {o_li}')
+    print()
 
-    print(num_li)
-    print(cat_li)
-    print(o_li)
+    print('******************************************************************************')
 
-    #cat_compare(df, target_column, target_value, cat_li)
+    cat_compare(df, target_column, target_value, cat_li)
 
     num_compare(df, target_column, target_value, num_li)
 
     
-def sep_data_types(df):
+def sep_data_types(df, target_column):
     '''Takes in a dataframe and returns two lists
        one with the continuous columns and one with the cotegorical columns'''
 
@@ -35,7 +42,7 @@ def sep_data_types(df):
 
             o_li.append(col)
 
-        if df[f'{col}'].dtype == 'float64' :
+        elif df[f'{col}'].dtype == 'float64' :
 
             num_li.append(col)
 
@@ -61,6 +68,15 @@ def cat_compare(df, target_column, target_value, cat_li):
         vals = list(set(df[col].to_list()))
         hights = []
 
+        # get total number of rows where value in target column matches target value
+        tot_val = len(df[df[target_column] == target_value])
+
+        # get total number of rows in the dataframe
+        tot_rows = len(df)
+
+        # get overall percent of target variable
+        overall = round(tot_val/tot_rows,2)*100
+
         # for each value in the column 
         for val in vals:
         
@@ -70,7 +86,7 @@ def cat_compare(df, target_column, target_value, cat_li):
             # get number of rows matching the value in the current column
             num_val = len(df[df[col] == val])
 
-            print(col, val, num_val_target, num_val)
+            print(col, val, f'Number matching target vale: {num_val_target}', f'Tota: {num_val}')
 
             # get percent of rows matching value in the current column that also match the target variable in the target column
             percent = round((num_val_target/num_val),2)*100
@@ -86,10 +102,18 @@ def cat_compare(df, target_column, target_value, cat_li):
         # Unzip the sorted data back into separate lists
         vals, hights = zip(*data)
 
+        vals = list(vals)
+        hights = list(hights)
+
+        vals.insert(0,'Overall')
+        hights.insert(0, overall)
+
+        plt.figure(figsize=(16,6))
         plt.bar(vals, hights)
         plt.title(f'{target_value} percentage for {col}')
         plt.show()
 
+        print('******************************************************************************')
 
 def num_compare(df, target_column, target_value, num_li):
     '''Prints bar chart with 
@@ -114,11 +138,57 @@ def num_compare(df, target_column, target_value, num_li):
         hight = [mean, target_mean, non_target_mean]
         
         # print graph
+        plt.figure(figsize=(16,6))
         plt.bar(x, hight)
         plt.title(f'avg {col}')
         plt.show()
 
-
+        print('******************************************************************************')
 if __name__ == "__main__":
 
     main(df, target_column, target_value)
+
+
+def get_chart(df,col,target_column,target_value,title):
+    
+
+     # get values in column
+        vals = list(set(df[col].to_list()))
+        hights = []
+
+        # get total number of rows where value in target column matches target value
+        tot_val = len(df[df[target_column] == target_value])
+
+        # get total number of rows in the dataframe
+        tot_rows = len(df)
+
+        # get overall percent of target variable
+        overall = round(tot_val/tot_rows,2)*100
+
+        # for each value in the column 
+        for val in vals:
+        
+            # get the number of rows matching the value in the current collumn and the target value in the target column
+            num_val_target = len(df[(df[col] == val) & (df[f'{target_column}'] == f'{target_value}')])
+
+            # get number of rows matching the value in the current column
+            num_val = len(df[df[col] == val])
+
+            # get percent of rows matching value in the current column that also match the target variable in the target column
+            percent = round((num_val_target/num_val),2)*100
+            
+            hights.append(percent)
+
+        # Combine categories and values into a list of tuples
+        data = list(zip(vals, hights))
+
+        # Sort the data by values in descending order
+        data.sort(key=lambda x: x[1], reverse=True)
+
+        # Unzip the sorted data back into separate lists
+        vals, hights = zip(*data)
+
+        plt.figure(figsize=(16,6))
+        plt.bar(vals, hights)
+        plt.title(f'{title}')
+        plt.show()
