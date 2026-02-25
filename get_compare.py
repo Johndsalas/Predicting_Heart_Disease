@@ -149,7 +149,7 @@ if __name__ == "__main__":
     main(df, target_column, target_value)
 
 
-def get_chart(df,col,target_column,target_value,title):
+def get_cata_chart(df,col,target_column,target_value,title):
     
 
      # get values in column
